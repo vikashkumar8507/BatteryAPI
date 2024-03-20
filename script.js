@@ -1,9 +1,7 @@
 const batteryLevel = document.querySelector(".batteryLevel");
 const batteryCharging = document.querySelector(".batteryCharging");
 const batteryChargingTime = document.querySelector(".batteryChargingTime");
-const batteryDisChargingTime = document.querySelector(
-  ".batteryDisChargingTime"
-);
+const batteryDisChargingTime = document.querySelector(".batteryDisChargingTime");
 
 //battery API
 
@@ -18,13 +16,14 @@ const battery = () => {
       }
       updateAllBatteryDetails();
       //battery charging change
-      battery.addEventListener("chargingchange", () => {
-        updateChargingInfo();
-      });
+      
       function updateChargingInfo() {
         const isCharging = battery.charging ? "yes" : "No";
         batteryCharging.innerHTML = isCharging;
       }
+      battery.addEventListener("chargingchange", () => {
+        updateChargingInfo();
+      });
 
       //battery charging time
       battery.addEventListener("chargingtimechange", () => {
